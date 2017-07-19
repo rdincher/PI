@@ -13,7 +13,7 @@
   		<th>            </th>
   	</tr>
   <?php
-  for ($x = 1; $x <= 10; $x++)
+  for ($x = 0; $x <= 9; $x++)
   {
   	$day = $parsed_json->{'forecast'}->{'simpleforecast'}->{'forecastday'}[$x]->{'date'}->{'weekday_short'};
   	$month = $parsed_json->{'forecast'}->{'simpleforecast'}->{'forecastday'}[$x]->{'date'}->{'month'};

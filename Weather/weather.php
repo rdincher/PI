@@ -16,9 +16,7 @@
   		});
   		return false;
 	}
-	$('img').on('error', function() {
-  		$(this).hide();
-	})
+
   </script>
   	<style>
   		table {
