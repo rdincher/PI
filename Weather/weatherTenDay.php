@@ -33,7 +33,7 @@
   		<td><?php echo $humid; ?></td>
   		<td><?php echo $wind; ?> <?php echo $windDir; ?></td>
   		<td><?php echo $fct; ?></td>
-  		<td><img src=<?php echo $icon; ?> alt="Weather"></td>
+  		<td><img src=<?php echo $icon; ?> alt=""></td>
   	</tr>
   	<?php
   }
