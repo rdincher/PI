@@ -1,45 +1,23 @@
-<! DOCTYPE html>
-<html>
-  <head>
-  	<title>Light Control</title>
-  	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-  	<script>
-	function tenDay() {
-   		$.ajax({
-      		url:'weatherTenDay.php',
-      		complete: function (response) {
-          		$('#output').html(response.responseText);
-      		},
-      		error: function () {
-         		$('#output').html('Bummer: there was an error!');
-     		}
-  		});
-  		return false;
-	}
-	function threeDay() {
-   		$.ajax({
-      		url:'weatherThreeDay.php',
-      		complete: function (response) {
-          		$('#output').html(response.responseText);
-      		},
-      		error: function () {
-         		$('#output').html('Bummer: there was an error!');
-     		}
-  		});
-  		return false;
-	}
-  </script>
-  	<style>
-  		table {
-    		border-spacing: 15px;
-			}
- 	 </style>
-  </head>
-  <body>
-  	<h4>Light Control</h4>
-  	<button type="button" id="btnTen" onClick=tenDay()>10 Day Forecast</button>
-	<button type="button" id="btnThree" onClick=threeDay()>3 Day Forecast</button>
-  	<div id="output">waiting for action</div>
-
-  </body>
-</html>
+<?php
+  $json_string = file_get_contents("http://*insert bridge ip*/api/*insert user id*");
+  $parsed_json = json_decode($json_string);
+  ?>
+  <table border-spacing: 5px;>
+  	<tr>
+  		<th> Light  </th>
+  		<th> Name </th>
+  	</tr>
+  <?php
+  for ($x = 1; $x <= 4; $x++)
+  {
+  	$lightID = $x;
+  	$high = $parsed_json->{'lights'}->{$x}->{'name'};
+  	?>
+  	<tr>
+  		<td><?php echo $lightID; ?></td>
+  		<td><?php echo $high; ?></td>
+  	</tr>
+  	<?php
+  }
+?>
+	</table>
