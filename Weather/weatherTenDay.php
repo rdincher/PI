@@ -39,3 +39,4 @@
   }
 ?>
 	</table>
+	<i>Powered by Weather Underground</i>
