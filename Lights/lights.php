@@ -33,6 +33,14 @@
   		return false;
 	}
   </script>
+  <script language="Javascript">
+  	function lightsOn()
+  	{
+  		var http = new XMLHttpRequest();
+    	http.open('PUT', "http://192.168.2.5/api/NNNcEcM5gL2AN7EnHzXbyLQkSzg6kwAF0y83DGip/lights/1/state", true);
+    	http.send('{"on":true}');
+    }
+  </script>
   </head>
   <body>
   	<h3>Light Control</h3>
@@ -41,7 +49,7 @@
 	</br>
 	<div id="search">
   		Light ID: <input id="lightNum" type="number" value="" min="1" style="width: 3em"/>
-  		<button type="button" id="toggle" onClick=lightOn()>Turn On Light</button>
+  		<button type="button" id="toggle" onClick="lightsOn()">Turn On Light</button>
 	</div>
   </body>
 </html>
