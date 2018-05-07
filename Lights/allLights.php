@@ -1,10 +1,16 @@
 <?php
-  $json_string = file_get_contents("http://*bridge*/api/*user Num*");
-  $parsed_json = json_decode($json_string);
+  $curl = curl_init();
+  curl_setopt($curl, CURLOPT_URL, "http://192.168.2.5/api/NNNcEcM5gL2AN7EnHzXbyLQkSzg6kwAF0y83DGip");
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+  $result = curl_exec($curl);
+  curl_close($curl);
+
+  #$json_string = file_get_contents("http://192.168.2.5/api/NNNcEcM5gL2AN7EnHzXbyLQkSzg6kwAF0y83DGip");
+  $parsed_json = json_decode($result);
   ?>
   <table border-spacing: 5px;>
   	<tr>
-  		<th> Light  </th>
+  		<th> Light ID  </th>
   		<th> Name </th>
   	</tr>
   <?php
